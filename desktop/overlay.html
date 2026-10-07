@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Return to Latch</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="overlay-body">
+    <div class="return-stripes" aria-hidden="true"></div>
+    <main class="overlay">
+      <div class="return-beacon" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <p class="eyebrow">Latch by Resistance Labs</p>
+      <h1>Back to task</h1>
+      <p id="overlayDetail">This session is still active.</p>
+      <div class="overlay-actions">
+        <button class="primary" id="returnNow">Return to Context</button>
+        <button class="quiet danger" id="unlockDelay">Emergency unlock</button>
+      </div>
+      <p id="unlockCountdown" class="muted"></p>
+    </main>
+    <script src="./overlay.js"></script>
+  </body>
+</html>

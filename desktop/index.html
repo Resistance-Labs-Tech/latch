@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latch</title>
+    <script src="./theme-init.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="workspace">
+        <div class="masthead">
+          <div>
+            <p class="eyebrow">Resistance Labs</p>
+            <h1>Latch</h1>
+            <p class="product-subtitle">Commit to one context. Let the app resist the drift.</p>
+          </div>
+          <div class="masthead-actions">
+            <button id="themeToggle" class="icon-button" title="Toggle color theme" aria-label="Toggle color theme">Dark</button>
+            <div class="status-pill" id="sessionStatus">Idle</div>
+          </div>
+        </div>
+
+        <section class="primary-panel">
+          <div class="task-header">
+            <div>
+              <p class="label">Locked window</p>
+              <h2 id="lockedTitle">No window selected</h2>
+              <p id="lockedMeta" class="muted">Pick the desktop surface this session should protect.</p>
+            </div>
+          </div>
+
+          <div class="window-picker">
+            <label>
+              <span>Desktop context</span>
+              <select id="windowList"></select>
+            </label>
+            <button id="refreshWindows">Refresh</button>
+            <button id="lockSelected">Latch Window</button>
+          </div>
+
+          <div class="controls-grid">
+            <label>
+              <span>Minutes</span>
+              <input id="duration" type="number" min="1" max="240" value="25" />
+            </label>
+            <label class="wide">
+              <span>Allowed URL rules</span>
+              <textarea id="allowedUrls" rows="5" spellcheck="false" placeholder="docs.google.com&#10;https://github.com/*"></textarea>
+            </label>
+          </div>
+
+          <div class="browser-focus">
+            <div class="section-heading">
+              <div>
+                <p class="label">Focused Chrome tabs</p>
+                <p class="muted">Choose the exact browser tabs that belong in this session.</p>
+              </div>
+              <button id="refreshTabs">Refresh Tabs</button>
+            </div>
+            <div id="tabList" class="tab-list">
+              <p class="muted">Load the Chrome extension to see open tabs.</p>
+            </div>
+          </div>
+
+          <div class="action-row">
+            <button class="primary" id="startSession">Start Latch</button>
+            <button class="quiet" id="stopSession">End Session</button>
+          </div>
+        </section>
+
+        <section class="detail-strip">
+          <div>
+            <p class="label">Current foreground</p>
+            <strong id="foregroundTitle">Waiting for monitor...</strong>
+            <span id="foregroundMeta" class="muted"></span>
+          </div>
+          <div>
+            <p class="label">Chrome extension</p>
+            <strong id="extensionStatus">Not connected</strong>
+            <span id="browserMeta" class="muted">Load the extension folder; it auto-connects.</span>
+          </div>
+          <div>
+            <p class="label">Interruptions</p>
+            <strong id="violations">0</strong>
+            <span id="lastViolation" class="muted">None this session</span>
+          </div>
+        </section>
+      </section>
+
+      <aside class="side-rail">
+        <section class="brand-card">
+          <img src="../assets/latch.svg" alt="" />
+          <div>
+            <strong>Latch</strong>
+            <span>Developed by Resistance Labs</span>
+          </div>
+        </section>
+        <section>
+          <p class="label">Bridge</p>
+          <code id="bridgeUrl">ws://127.0.0.1:37371</code>
+        </section>
+        <button id="openExtension" class="secondary">Open Extension Folder</button>
+        <div class="install-note">
+          <p>Chrome setup</p>
+          <ol>
+            <li>Open <strong>chrome://extensions</strong>.</li>
+            <li>Enable developer mode.</li>
+            <li>Load the extension folder.</li>
+            <li>The extension connects to this app automatically.</li>
+          </ol>
+        </div>
+        <p class="side-footer">Resistance Labs builds tools for deliberate work.</p>
+      </aside>
+    </main>
+    <script src="./renderer.js"></script>
+  </body>
+</html>

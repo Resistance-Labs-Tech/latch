@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src ws://127.0.0.1:37371" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latch</title>
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <p>Latch</p>
+        <strong id="guardStatus">Idle</strong>
+      </header>
+
+      <section class="connection">
+        <span id="connectionDot"></span>
+        <div>
+          <strong id="connectionStatus">Connecting</strong>
+          <p>Controlled by Latch desktop</p>
+        </div>
+      </section>
+
+      <label>
+        Desktop bridge
+        <input id="bridgeUrl" value="ws://127.0.0.1:37371" />
+      </label>
+
+      <button id="saveBridge">Reconnect</button>
+
+      <div class="divider"></div>
+      <p class="section-title">Allowed rules from app</p>
+      <pre id="allowedRules">No desktop session rules yet.</pre>
+    </main>
+    <script src="./popup.js"></script>
+  </body>
+</html>

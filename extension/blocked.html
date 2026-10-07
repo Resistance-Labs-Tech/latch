@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'self'" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Latch</title>
+    <link rel="stylesheet" href="./popup.css" />
+    <style>
+      body {
+        width: auto;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+      }
+
+      main {
+        width: min(520px, calc(100vw - 48px));
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: 44px;
+        letter-spacing: 0;
+      }
+
+      p {
+        color: var(--muted);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Return to the task</h1>
+      <p>This tab is outside the current Latch session.</p>
+      <button class="primary" id="returnTab">Return</button>
+    </main>
+    <script src="./blocked.js"></script>
+  </body>
+</html>

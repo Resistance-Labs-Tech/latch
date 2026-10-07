@@ -1,0 +1,59 @@
+{
+  "name": "latch",
+  "productName": "Latch",
+  "version": "0.1.0",
+  "description": "A Windows and Chrome commitment lock for resisting context switching.",
+  "main": "main.js",
+  "type": "commonjs",
+  "author": "Resistance Labs",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win nsis portable",
+    "test": "node tests/urlRules.test.mjs",
+    "check": "node --check main.js && node --check preload.js && node --check desktop/renderer.js && node --input-type=module --check < extension/background.js && node --check extension/popup.js && node --check extension/blocked.js"
+  },
+  "build": {
+    "appId": "labs.resistance.latch",
+    "productName": "Latch",
+    "copyright": "Copyright © 2026 Resistance Labs",
+    "directories": {
+      "buildResources": "assets",
+      "output": "release"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "package.json",
+      "desktop/**/*",
+      "extension/**/*",
+      "windows/**/*",
+      "assets/**/*",
+      "node_modules/**/*"
+    ],
+    "extraMetadata": {
+      "name": "latch"
+    },
+    "win": {
+      "icon": "assets/latch.ico",
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Latch"
+    }
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "electron": "^41.4.0",
+    "electron-builder": "^26.8.1"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Latch",
+  "version": "0.1.0",
+  "description": "Chrome tab commitment companion for Latch by Resistance Labs.",
+  "permissions": ["tabs", "storage", "notifications"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; connect-src ws://127.0.0.1:37371"
+  },
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "Latch",
+    "default_popup": "popup.html"
+  }
+}
